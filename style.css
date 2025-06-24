@@ -1,3 +1,10 @@
+@font-face{
+    font-family: "capitalis";
+    src: url("adelia.otf");
+    src: url("adelia.ttf");
+}
+
+
 /* ==== RESET & GLOBAL ==== */
 * {
   margin: 0;
@@ -558,8 +565,8 @@ footer#contact .copyright {
 }
 
 .not-a-gallery {
+  font-family: 'capitalis';
   text-align: center;
-  text-decoration: underline;
   font-size: 55px;
   margin-bottom: 20px;
   color: #cfcfcf;
