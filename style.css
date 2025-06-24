@@ -1,0 +1,602 @@
+/* ==== RESET & GLOBAL ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f5f5;
+  color: #333;
+  scroll-behavior: smooth;
+}
+
+/* ==== HEADER & NAVIGATION ==== */
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0; left: 0;
+  height: 80px;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+#logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+#logo img {
+  height: 50px;
+  width: auto;
+  display: block;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  transition: transform 0.5s ease;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  font-weight: 500;
+  position: relative;
+  padding: 5px 0;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -5px;
+  width: 0;
+  height: 2px;
+  background: dodgerblue;
+  transition: 0.3s ease;
+}
+
+.nav-links li a:hover,
+.nav-links li a:focus {
+  color: dodgerblue;
+}
+
+.nav-links li a:hover::after,
+.nav-links li a:focus::after {
+  width: 100%;
+}
+
+#burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 20px;
+  cursor: pointer;
+  z-index: 150;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  border-radius: 10px;
+  transition: all 0.4s ease;
+}
+
+#burger.open .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+#burger.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+#burger.open .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* === RESPONSIVE MENU BURGER === */
+@media screen and (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 80px;
+    right: 0;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: white;
+    flex-direction: column;
+    padding-top: 50px;
+    align-items: center;
+    gap: 40px;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 120;
+  }
+
+  .nav-links.active {
+    transform: translateX(0);
+  }
+
+  #burger {
+    display: flex;
+  }
+}
+
+/* ==== SLIDE 1 - PARALLAX ==== */
+#slide1 {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background: url('images/nuages%20magritte.jpg') no-repeat center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#slide1::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('images/Signature_Ren%C3%A9_Magritte.svg.png') no-repeat center/contain;
+  background-size: 40%;
+  pointer-events: none;
+  transform: translateZ(0);
+  will-change: transform;
+  opacity: 0.85;
+  z-index: 1;
+}
+
+#slide1 h1 {
+  color: white;
+  font-size: 64px;
+  z-index: 10;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+}
+
+/* ==== SLIDE 2 - PRÉSENTATION ==== */
+#slide2 {
+  min-height: 100vh;
+  padding: 100px 5vw 50px;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 1s forwards;
+  animation-delay: 0.4s;
+}
+
+#slide2 .artist-photo {
+  flex: 1 1 320px;
+  max-width: 350px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+#slide2 .artist-photo img {
+  width: 100%;
+  display: block;
+}
+
+#slide2 .artist-text {
+  flex: 1 1 400px;
+  font-size: 19px;
+  line-height: 1.6;
+  max-width: 600px;
+  color: #444;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==== SLIDE 3 - GALERIE ==== */
+.horizontal-gallery {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 60px 0;
+  background: #111;
+}
+
+.gallery-track {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 20px 40px;
+  scrollbar-width: none;
+  outline: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.gallery-track::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-item {
+  flex: 0 0 auto;
+  width: 300px;
+  height: 400px;
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  background: #222;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img,
+.gallery-item:focus img {
+  transform: scale(1.1);
+}
+
+/* Boutons navigation galerie */
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  font-size: 40px;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+  user-select: none;
+}
+
+.nav:hover,
+.nav:focus {
+  background: rgba(255,255,255,0.7);
+  outline: none;
+}
+
+.nav.left {
+  left: 10px;
+}
+
+.nav.right {
+  right: 10px;
+}
+
+/* ==== FOOTER CONTACT ==== */
+footer#contact {
+  background: #222;
+  color: white;
+  padding: 60px 5vw;
+  text-align: center;
+  font-size: 16px;
+}
+
+footer#contact h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+footer#contact form {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+footer#contact input,
+footer#contact textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+footer#contact button {
+  background: dodgerblue;
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+footer#contact button:hover,
+footer#contact button:focus {
+  background: deepskyblue;
+  outline: none;
+}
+
+footer#contact .copyright {
+  margin-top: 30px;
+  font-size: 12px;
+  color: #777;
+}
+
+/* ==== LIGHTBOX ==== */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 200;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(255,255,255,0.5);
+}
+
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.3);
+  animation: zoomIn 0.4s ease;
+}
+
+.lightbox-caption {
+  margin-top: 20px;
+  color: white;
+  font-size: 22px;
+  font-weight: 500;
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+  animation-delay: 0.3s;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 48px;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.close:hover,
+.close:focus {
+  color: dodgerblue;
+  outline: none;
+}
+
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  font-size: 48px;
+  color: white;
+  background: rgba(255,255,255,0.1);
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+  z-index: 210;
+  transform: translateY(-50%);
+  transition: background 0.3s ease;
+}
+
+.nav-arrow:hover {
+  background: rgba(255,255,255,0.4);
+}
+
+.nav-arrow.left {
+  left: 30px;
+}
+
+.nav-arrow.right {
+  right: 30px;
+}
+
+/* ==== ANIMATIONS ==== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ==== ACCESSIBILITY ==== */
+/* Remove outline only if not focus-visible */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+
+
+.contact-video-wrapper {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-family: Arial, sans-serif;
+}
+
+/* La section vidéo prend environ 40% */
+.video-section {
+  flex: 0 0 40%;
+}
+
+/* Le formulaire prend le reste */
+#contact-form {
+  flex: 1;
+}
+
+/* Styles vidéo et bouton play (reprise améliorée) */
+
+.youtube-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+  cursor: pointer;
+}
+
+.youtube-thumbnail {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+}
+
+.youtube-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.85);
+  transition: filter 0.3s ease;
+}
+
+.youtube-thumbnail:hover img {
+  filter: brightness(1);
+}
+
+.play-button {
+  position: absolute;
+  width: 68px;
+  height: 48px;
+  background: url('data:image/svg+xml;utf8,<svg fill="white" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><path d="M66.52 7.62a8 8 0 0 0-11.11-3.14c-2.79 1.54-11.05 6.09-18.68 10.8-7.46 4.58-10.82 7.9-14.37 11.2a7.996 7.996 0 0 0 0 11.07c3.55 3.29 6.9 6.62 14.37 11.2 7.63 4.71 15.9 9.26 18.68 10.8a8 8 0 0 0 11.11-3.14 7.997 7.997 0 0 0 0-8.77 8 8 0 0 0-3.1-3.12c-1.54-2.79-6.07-11.03-10.79-18.65-4.58-7.47-7.91-10.82-11.2-14.37a7.997 7.997 0 0 0-7.01-2.68z"/></svg>') no-repeat center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.youtube-thumbnail:hover .play-button {
+  opacity: 1;
+}
+
+
+.contact-video-wrapper {
+  display: flex;
+  gap: 30px; /* espace entre vidéo et formulaire */
+  align-items: flex-start;
+}
+
+.video-section {
+  flex: 0 0 45%; /* la vidéo prend 45% de la largeur */
+  max-width: 45%;
+}
+
+#contact-form {
+  flex: 1; /* formulaire prend le reste */
+}
+
+.youtube-thumbnail img {
+  width: 100%;
+  height: auto;
+  max-height: 300px; /* augmente la hauteur max */
+  object-fit: cover;
+  cursor: pointer;
+}
+.video-section {
+  max-width: 45%;
+  height: 320px; /* fixe une hauteur, par exemple */
+}
+
+.not-a-gallery {
+  text-align: center;
+  text-decoration: underline;
+  font-size: 55px;
+  margin-bottom: 20px;
+  color: #cfcfcf;
+}
+
+.scroll-down {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 95px;
+  color: white;
+  text-decoration: none;
+  animation: bounce 2s infinite;
+  z-index: 10;
+  cursor: pointer;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+.epse-below {
+  text-align: center;
+  background-color: #222;
+  font-size: 14px;
+  color: #919191;
+  font-weight: 600;
+  
+  user-select: none;
+  font-family: 'Arial', sans-serif;
+}

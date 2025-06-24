@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Magritte site</title>
+</head>
+<body>
+  <header>
+    <a href="#slide1" id="logo" aria-label="Logo Magritte">
+      <img src="images/Signature_René_Magritte.svg.png" alt="Logo Magritte" />
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#slide1">Accueil</a></li>
+        <li><a href="#slide2">L'artiste</a></li>
+        <li><a href="#slide3">Galerie</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div id="burger" aria-label="Menu" aria-expanded="false" role="button" tabindex="0">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="slide" id="slide1">
+      <a href="#slide2" class="scroll-down" aria-label="Descendre vers la section suivante">↓</a>
+    </section>
+
+    <section class="slide" id="slide2" aria-labelledby="titre-artiste">
+      <div class="artist-photo">
+        <img src="images/René_Magritte_in_1961.jpg" alt="Portrait de René Magritte" />
+      </div>
+      <div class="artist-text">
+        <h2 id="titre-artiste">Présentation de l'artiste</h2>
+        <p>René Magritte, né en 1898 en Belgique, est un peintre surréaliste majeur, célèbre pour ses œuvres qui mêlent réalisme précis et images énigmatiques. Marqué dès son enfance par le suicide de sa mère, il développe une vision singulière du monde où le réel se transforme en mystère. Après des études aux Beaux-Arts de Bruxelles, il s’inspire notamment de Giorgio de Chirico, dont le style influence ses premières œuvres.
+Installé à Paris dans les années 1920, Magritte rencontre les principaux surréalistes, mais il conserve une approche unique, s’éloignant des interprétations psychanalytiques souvent associées au mouvement. Ses tableaux questionnent la relation entre l’image et la réalité, comme dans sa célèbre œuvre « Ceci n’est pas une pipe », qui invite à réfléchir sur la nature de la représentation.
+De retour en Belgique, il connaît un succès croissant et continue à explorer des thèmes mêlant mystère, poésie et ironie. Jusqu’à sa mort en 1967, Magritte laisse une empreinte profonde dans l’art moderne, influençant durablement la culture visuelle à travers le monde.</p>
+      </div>
+    </section>
+
+    
+    <section class="slide horizontal-gallery" id="slide3" aria-label="Galerie d'œuvres">
+ <p class="not-a-gallery">Ceci n’est pas une galerie d’œuvres</p>
+<!-- Galerie -->
+<div class="horizontal-gallery">
+  <button class="nav left" onclick="scrollGallery(-1)">&#10094;</button>
+  <div class="gallery-track">
+    <!-- Exemple image avec titre -->
+    <div class="gallery-item" data-title="La cinquième saison - 1943">
+      <img src="images/5eme saison.jpg" alt="5ème saison">
+    </div>
+    <div class="gallery-item" data-title="Les Bijoux indiscrets - 1963">
+      <img src="images/bijous indiscret.jpg" alt="5ème saison">
+    </div>
+    <div class="gallery-item" data-title="La Bonne Année - 1947">
+      <img src="images/bonne année.jpg" alt="5ème saison">
+    </div>
+    <div class="gallery-item" data-title=" La bonne fortune - 1945">
+      <img src="images/bonne fortune.jpg" alt="5ème saison">
+    </div>
+    <div class="gallery-item" data-title="Le Chant d'Amour - 1946">
+      <img src="images/chant d'amour.jpg" alt="5ème saison">
+    </div>
+    <div class="gallery-item" data-title="Le Blanc Seing - 1965">
+      <img src="images/cheval.jpg" alt="5ème saison">
+    </div>
+    <div class="gallery-item" data-title="L'ellipse - 1948">
+      <img src="images/ellipse.jpg" alt="5ème saison">
+    </div>
+    <div class="gallery-item" data-title="Les grandes espérances - 1940">
+      <img src="images/grandes espérances.jpg" alt="imagerie magritte">
+    </div>
+    <div class="gallery-item" data-title="L'incendie - 1943">
+      <img src="images/l'incendie.jpg" alt="imagerie magritte">
+    </div>
+    <div class="gallery-item" data-title="Le joueur secret- 1927">
+      <img src="images/joueur secret.jpg" alt="imagerie magritte">
+    </div>
+    <div class="gallery-item" data-title="La Géante - 1967">
+      <img src="images/la géante.jpg" alt="imagerie magritte">
+    </div>
+    <div class="gallery-item" data-title="L'homme du large - 1927">
+      <img src="images/large.jpg" alt="imagerie magritte">
+    </div>
+    <div class="gallery-item" data-title="Le baiser - 1938">
+      <img src="images/le baiser.jpg" alt="imagerie magritte">
+    </div>
+    <div class="gallery-item" data-title="Le retour - 1940">
+      <img src="images/le retour.jpg" alt="imagerie magritte">
+    </div>
+    <div class="gallery-item" data-title="Le lyrisme - 1947">
+      <img src="images/lyrisme.jpg" alt="imagerie magritte">
+    </div>
+    <div class="gallery-item" data-title="La magie noire - 1945">
+      <img src="images/magie noire.jpg" alt="imagerie magritte">
+    </div>
+    <div class="gallery-item" data-title="Les Mille et une Nuits - 1946">
+      <img src="images/mille et une nuits.jpg" alt="imagerie magritte">
+    </div>
+    <div class="gallery-item" data-title="Personnage méditant sur la folie - 1928">
+      <img src="images/méditant sur la folie.jpg" alt="imagerie magritte">
+    </div>
+    <div class="gallery-item" data-title=" Le Recherche de l'Absolu - 1967">
+      <img src="images/recherche de l'absolu.jpg" alt="imagerie magritte">
+    </div>
+    <div class="gallery-item" data-title="La Recherche de la Vérité - 1963">
+      <img src="images/recherche de la vérité.jpg" alt="imagerie magritte">
+    </div>
+    <div class="gallery-item" data-title="Les rencontres naturelles - 1945">
+      <img src="images/rencontres naturelles.jpg" alt="imagerie magritte">
+    </div>
+    <div class="gallery-item" data-title="Shéhérazade - 1948">
+      <img src="images/shéhérazade.jpg" alt="imagerie magritte">
+    </div>
+    <div class="gallery-item" data-title="Le Sourire du Diable - 1967">
+      <img src="images/sourire du diable.jpg" alt="imagerie magritte">
+    </div>
+    <div class="gallery-item" data-title="La saveur des larmes - 1948">
+      <img src="images/veur de slarmes.jpg" alt="imagerie magritte">
+    </div>
+    <div class="gallery-item" data-title="L'écuyère - 1922">
+      <img src="images/écuyère.jpg" alt="imagerie magritte">
+    </div>
+    
+  </div>
+  <button class="nav right" onclick="scrollGallery(1)">&#10095;</button>
+</div>
+
+<!-- Lightbox avec navigation -->
+<div class="lightbox" id="lightbox">
+  <span class="close" id="lightboxClose">&times;</span>
+  <span class="nav-arrow left" id="lightboxPrev">&#10094;</span>
+  <span class="nav-arrow right" id="lightboxNext">&#10095;</span>
+  <div class="lightbox-content">
+    <img id="lightboxImg" src="" alt="">
+    <div class="lightbox-caption" id="lightboxTitle"></div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+      
+    </section>
+  </main>
+
+  <footer id="contact">
+    <h2>Contact</h2>
+     <div class="contact-video-wrapper">
+    <section class="video-section">
+      <h3>Venez visiter le musée Magritte à Bruxelles</h3>
+      <div class="youtube-container" id="youtube-player">
+        <div class="youtube-thumbnail" onclick="loadYoutubeVideo()">
+          <img src="https://img.youtube.com/vi/SyhccqYewAE/hqdefault.jpg" alt="Musée Magritte">
+          <div class="play-button"></div>
+        </div>
+      </div>
+    </section>
+    <form id="contact-form" action="#" method="post" novalidate>
+      <input type="text" name="name" placeholder="Votre nom" required />
+      <input type="email" name="email" placeholder="Votre email" required />
+      <textarea name="message" placeholder="Votre message..." required></textarea>
+      <button type="submit">Envoyer</button>
+      <p class="form-message" aria-live="polite" style="color: lightgreen; margin-top: 10px;"></p>
+    </form>
+    
+  </footer>
+<div class="epse-below">@EPSE</div>
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image agrandie">
+    <span class="close" role="button" tabindex="0" aria-label="Fermer la lightbox">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" alt="Oeuvre en grand format" />
+  </div>
+
+  <script>
+  const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxTitle = document.getElementById('lightboxTitle');
+const closeBtn = document.getElementById('lightboxClose');
+const prevBtn = document.getElementById('lightboxPrev');
+const nextBtn = document.getElementById('lightboxNext');
+
+let currentIndex = 0;
+
+function showLightbox(index) {
+  const item = galleryItems[index];
+  const img = item.querySelector('img');
+  lightboxImg.src = img.src;
+  lightboxImg.alt = img.alt;
+  lightboxTitle.textContent = item.dataset.title || img.alt;
+  lightbox.classList.add('active');
+  currentIndex = index;
+}
+
+galleryItems.forEach((item, index) => {
+  item.addEventListener('click', () => showLightbox(index));
+  item.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      showLightbox(index);
+    }
+  });
+});
+
+closeBtn.addEventListener('click', () => {
+  lightbox.classList.remove('active');
+});
+
+lightbox.addEventListener('click', e => {
+  if (e.target === lightbox || e.target === closeBtn) {
+    lightbox.classList.remove('active');
+  }
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    lightbox.classList.remove('active');
+  } else if (e.key === 'ArrowLeft') {
+    currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+    showLightbox(currentIndex);
+  } else if (e.key === 'ArrowRight') {
+    currentIndex = (currentIndex + 1) % galleryItems.length;
+    showLightbox(currentIndex);
+  }
+});
+
+prevBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+  showLightbox(currentIndex);
+});
+
+nextBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % galleryItems.length;
+  showLightbox(currentIndex);
+});
+
+
+const galleryTrack = document.querySelector('.gallery-track');
+
+function scrollGallery(direction) {
+  const scrollAmount = 300; 
+  galleryTrack.scrollBy({
+    left: direction * scrollAmount,
+    behavior: 'smooth'
+  });
+}
+
+
+const burger = document.getElementById('burger');
+const navLinks = document.querySelector('.nav-links');
+
+burger.addEventListener('click', () => {
+  burger.classList.toggle('open');
+  navLinks.classList.toggle('active');
+
+  // Mise à jour de l'attribut aria-expanded pour l'accessibilité
+  const expanded = burger.getAttribute('aria-expanded') === 'true';
+  burger.setAttribute('aria-expanded', !expanded);
+});
+
+// Pour gérer l'accessibilité au clavier (Entrée et Espace)
+burger.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    burger.click();
+  }
+});
+
+function loadYoutubeVideo() {
+  const container = document.getElementById('youtube-player');
+  container.innerHTML = `
+    <iframe 
+      width="100%" 
+      height="100%" 
+      src="https://www.youtube.com/embed/SyhccqYewAE?autoplay=1&rel=0" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen
+      style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:12px;">
+    </iframe>
+  `;
+}
+
+
+</script>
+
+
+</body>
+</html>
