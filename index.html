@@ -28,9 +28,8 @@
   </header>
 
   <main>
-
     <section class="slide" id="slide1">
-      <a href="#slide2" class="scroll-down" aria-label="Descendre vers la section suivante">↓</a>
+  <!--   <h1>Bienvenue sur le site Magritte</h1> -->
     </section>
 
     <section class="slide" id="slide2" aria-labelledby="titre-artiste">
@@ -47,7 +46,7 @@ De retour en Belgique, il connaît un succès croissant et continue à explorer 
 
     
     <section class="slide horizontal-gallery" id="slide3" aria-label="Galerie d'œuvres">
- <p class="not-a-gallery">Ceci n’est pas une galerie d’œuvres</p>
+ 
 <!-- Galerie -->
 <div class="horizontal-gallery">
   <button class="nav left" onclick="scrollGallery(-1)">&#10094;</button>
@@ -101,6 +100,9 @@ De retour en Belgique, il connaît un succès croissant et continue à explorer 
     <div class="gallery-item" data-title="La magie noire - 1945">
       <img src="images/magie noire.jpg" alt="imagerie magritte">
     </div>
+    <div class="gallery-item" data-title="L'empire des lumières - 1954">
+      <img src="images/maison.jpg" alt="imagerie magritte">
+    </div>
     <div class="gallery-item" data-title="Les Mille et une Nuits - 1946">
       <img src="images/mille et une nuits.jpg" alt="imagerie magritte">
     </div>
@@ -124,6 +126,9 @@ De retour en Belgique, il connaît un succès croissant et continue à explorer 
     </div>
     <div class="gallery-item" data-title="La saveur des larmes - 1948">
       <img src="images/veur de slarmes.jpg" alt="imagerie magritte">
+    </div>
+    <div class="gallery-item" data-title="L'intelligence - 1946">
+      <img src="images/voleurs.jpg" alt="imagerie magritte">
     </div>
     <div class="gallery-item" data-title="L'écuyère - 1922">
       <img src="images/écuyère.jpg" alt="imagerie magritte">
@@ -158,7 +163,7 @@ De retour en Belgique, il connaît un succès croissant et continue à explorer 
 
   <footer id="contact">
     <h2>Contact</h2>
-     <div class="contact-video-wrapper">
+    <div class="contact-video-wrapper">
     <section class="video-section">
       <h3>Venez visiter le musée Magritte à Bruxelles</h3>
       <div class="youtube-container" id="youtube-player">
@@ -175,9 +180,9 @@ De retour en Belgique, il connaît un succès croissant et continue à explorer 
       <button type="submit">Envoyer</button>
       <p class="form-message" aria-live="polite" style="color: lightgreen; margin-top: 10px;"></p>
     </form>
-    
+    <div class="copyright">©EPSE</div>
   </footer>
-<div class="epse-below">@EPSE</div>
+
   <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image agrandie">
     <span class="close" role="button" tabindex="0" aria-label="Fermer la lightbox">&times;</span>
     <img class="lightbox-content" id="lightbox-img" alt="Oeuvre en grand format" />
@@ -278,22 +283,16 @@ burger.addEventListener('keydown', (e) => {
   }
 });
 
-function loadYoutubeVideo() {
-  const container = document.getElementById('youtube-player');
-  container.innerHTML = `
-    <iframe 
-      width="100%" 
-      height="100%" 
-      src="https://www.youtube.com/embed/SyhccqYewAE?autoplay=1&rel=0" 
-      frameborder="0" 
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-      allowfullscreen
-      style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:12px;">
-    </iframe>
-  `;
-}
-
-
+// Ferme le menu burger au clic sur un lien
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    if (burger.classList.contains('open')) {
+      burger.classList.remove('open');
+      navLinks.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+  });
+});
 </script>
 
 
